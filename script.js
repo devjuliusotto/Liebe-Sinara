@@ -1,5 +1,5 @@
 // Telas automáticas (sem botão)
-const autoScreens = ["Auto1", "Auto2", "Auto3", "Auto4", "Auto5", "Msg6"];
+const autoScreens = ["Auto1", "Auto2", "Auto3", "Auto4", "Auto5"];
 
 // Ordem completa das telas
 const proposalOrder = [
