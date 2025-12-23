@@ -1,0 +1,158 @@
+
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hey Lara!</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Pacifico&family=Quicksand:wght@400;600&display=swap" rel="stylesheet">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/lottie-web/5.9.6/lottie.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.5.1/dist/confetti.browser.min.js"></script>
+</head>
+<body>
+    <div class="container">
+        <div class="love-tip" id="love-tip"></div>
+
+        <!-- Tela inicial: interação para começar -->
+        <div id="StartScreen" class="proposal-screen" style="display:block;">
+            <div class="sticker" id="LottieStart"></div>
+            <h1> Querida Sinara,</h1>
+            <!-- <p>Clique no coração para começar essa história...</p> -->
+            <div class="btn">
+                <a href="#" onclick="startJourney()">Clique aqui</a>
+            </div>
+        </div>
+
+        <!-- Telas automáticas (sem botão) -->
+        <div id="Auto1" class="proposal-screen auto-step">
+            <div class="sticker" id="Sowrov11"></div>
+            <h1>Você foi uma mãe incrivel esse ano...</h1>
+            <p> </p>
+        </div>
+        <div id="Auto2" class="proposal-screen auto-step">
+            <div class="sticker" id="Sowrov12"></div>
+            <h1> Ter crianças com toda certeza não é facil...</h1>
+            <p> Ainda mais ter q cuidar de 3 de uma vez rsrs </p>
+        </div>
+        <div id="Auto3" class="proposal-screen auto-step">
+            <div class="sticker" id="Sowrov13"></div>
+            <h1>   </h1>
+            <p>Desde que você entrou na minha vida, tudo ficou mais leve, colorido e cheio de sentido...</p>
+        </div>
+        <div id="Auto4" class="proposal-screen auto-step">
+            <div class="sticker" id="Sowrov14"></div>
+            <h1>Lara! 💖</h1>
+            <p>Lembro com carinho de cada conversa que já tivemos...</p>
+        </div>
+        <div id="Auto5" class="proposal-screen auto-step">
+            <div class="sticker" id="Sowrov16"></div>
+            <h1>Lara! 💖</h1>
+            <p>Com você, até os dias nublados têm cor.<br><br>Você é minha calmaria e minha aventura ao mesmo tempo.</p>
+        </div>
+        <div id="Msg6" class="proposal-screen auto-step">
+            <div class="sticker" id="Sowrov17"></div>
+            <h1>Lara! 💖</h1>
+            <p>Sua risada virou minha trilha sonora favorita.</p>
+        </div>
+
+        <!-- Interativas -->
+        <div id="Quiz1" class="proposal-screen">
+            <div class="sticker" id="Sowrov15"></div>
+            <h1>Bora ver se você lembra… 🧐</h1>
+            <p>Qual foi o nosso primeiro assunto?</p>
+            <div class="btn">
+                <a href="#" onclick="quizAnswer(false)">Igrejas na Alemanha</a>
+                <a href="#" onclick="quizAnswer(false)">Comida</a>
+                <a href="#" onclick="quizAnswer(true)">Memórias Afetivas/Neve</a>
+            </div>
+            <div id="quiz-feedback" style="margin-top:15px;"></div>
+        </div>
+
+        <div id="Choice1" class="proposal-screen">
+            <div class="sticker" id="Sowrov18"></div>
+            <h1>Pergunta difícil... 🤔</h1>
+            <p>Quem é mais fofo?</p>
+            <div class="btn">
+                <a href="#" onclick="choiceAnswer()">Eu 😏</a>
+                <a href="#" onclick="choiceAnswer()">Você 🥰</a>
+            </div>
+            <div id="choice-feedback" style="margin-top:15px;"></div>
+        </div>
+
+        <div id="Input1" class="proposal-screen">
+            <div class="sticker" id="Sowrov20"></div>
+            <h1>Deixa um recadinho pra mim? 💌</h1>
+            <p>O que você mais gosta em nós dois juntos?</p>
+            <input type="text" id="love-note" class="input-box" maxlength="120" placeholder="Escreve aqui..." />
+            <div class="btn" style="margin-top: 15px;">
+                <a href="#" onclick="saveNote()">Enviar recado</a>
+            </div>
+            <div id="note-feedback" style="margin-top:15px;"></div>
+        </div>
+
+        <div id="Trip1" class="proposal-screen">
+            <div class="sticker" id="Sowrov21"></div>
+            <h1>Viagem dos sonhos…</h1>
+            <p>Se tivesse que escolher uma viagem comigo, pra onde seria?</p>
+            <div class="btn">
+                <a href="#" onclick="tripReact()">Praia 🏖️</a>
+                <a href="#" onclick="tripReact()">Montanha 🏔️</a>
+                <a href="#" onclick="tripReact()">Netflix em casa 🍿</a>
+            </div>
+            <div id="trip-feedback" style="margin-top:15px;"></div>
+        </div>
+
+        <div id="Truth1" class="proposal-screen">
+            <div class="sticker" id="Sowrov22"></div>
+            <h1>Verdade ou mentira?</h1>
+            <p>Você está sempre em todas minhas orações, por mais que sejam em momentos estranhos como antes de fazer alguma refeição rsrs.</p>
+            <div class="btn">
+                <a href="#" onclick="truthReact('verdade')">Verdade!</a>
+                <a href="#" onclick="truthReact('mentira')">Mentira!</a>
+            </div>
+            <div id="truth-feedback" style="margin-top:15px;"></div>
+        </div>
+
+        <div id="Msg3" class="proposal-screen">
+            <div class="sticker" id="Sowrov19"></div>
+            <h1>Lara! 💖</h1>
+            <p>Quero construir novas memórias com você, colecionar histórias, sorrisos, viagens e domingos preguiçosos.<br><br>Apenas continue se você quiser o mesmo comigo</p>
+            <div class="btn">
+                <a href="#" id="continue-together-btn" onclick="continueTogether()">Continuar</a>
+            </div>
+            <div id="together-feedback" style="margin-top:15px;"></div>
+        </div>
+
+        <div id="Msg4" class="proposal-screen">
+            <div class="sticker" id="Sowrov23"></div>
+            <h1>Lara! 💖</h1>
+            <p>Agora que já viajei no romantismo e também na mais pura breguice... <br><br> Queria te fazer uma pergunta MUITO importante… <br><br> Mas agora de forma oficial</p>
+            <div class="btn">
+                <a href="#" onclick="nextProposal()">Pode perguntar!</a>
+                <a href="#" onclick="nextProposal()">Vish, medo! 😬</a>
+            </div>
+        </div>
+
+        <div id="proposal-1" class="proposal-screen">
+            <div class="sticker" id="Sowrov24"></div>
+            <h1>Lara! 💖</h1>
+            <p>Quer ser meu par pra todas as aventuras, risadas e preguiças? <br><br> Ou, resumindo: quer namorar comigo?</p>
+            <div class="btn">
+                <a href="#" onclick="showProposal('proposal-yes')">❤️ Sim</a>
+                <a href="#" id="move-random">💔 Não</a>
+            </div>
+        </div>
+
+        <div id="proposal-yes" class="proposal-screen">
+            <div class="sticker" id="Sowrov25"></div>
+            <h1>SIM! 🥰</h1>
+            <p>20/06/2025... <br><br> Agora somos oficialmente um casal.<br>Prepare-se para viver muitas aventuras ao meu lado. Eu te amo!</p>
+            <div style="margin-top:30px;">
+                <small>Este site ficará guardado pra sempre nesse link. Volte sempre que quiser reassistir.</small>
+            </div>
+        </div>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>
