@@ -11,7 +11,7 @@ body {
     display: flex;
     align-items: center;
     justify-content: center;
-    background-color: #ffe5e5;
+    background: linear-gradient(135deg, #ffe5e5 0%, #ffcccc 50%, #ffb3b3 100%);
     overflow: hidden;
 }
 .container {
@@ -28,24 +28,28 @@ body {
     position: relative;
     background: none;
 }
-.sticker {
-    width: 180px;
-    height: 180px;
+.sticker, .sticker img {
+    width: 220px;
+    height: 220px;
     margin: 0 auto 10px auto;
     display: flex;
     align-items: center;
     justify-content: center;
+    border-radius: 15px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
 }
 
 h1 {
-    color: #e91e63;
+    color: #d81b60;
     font-size: 2.2rem;
     margin: 15px 0;
+    font-family: 'Pacifico', cursive;
 }
 p {
     color: #333;
     font-size: 1.3rem;
     margin-bottom: 20px;
+    font-family: 'Quicksand', sans-serif;
 }
 .btn {
     display: flex;

@@ -27,13 +27,13 @@ function showScreen(index) {
         screen.classList.add('fadeInCustom');
         animateSticker(currId);
 
-        // Avança sozinho após 5 segundos se for auto-step
+        // Avança sozinho após 8 segundos se for auto-step
         if (autoScreens.includes(currId)) {
             autoTimeout = setTimeout(() => {
                 screen.classList.remove('fadeInCustom');
                 screen.classList.add('fadeOutCustom');
                 setTimeout(() => nextProposal(), 700);
-            }, 5000);
+            }, 8000);
         }
     }
     showLoveTip();
@@ -70,43 +70,9 @@ function showConfirmation() {
     confetti({ particleCount: 120, spread: 80, origin: { y: 0.7 } });
 }
 
-// Lottie
-function loadLottieAnimations() {
-    lottie.loadAnimation({
-        container: document.getElementById('LottieStart'),
-        renderer: 'svg',
-        loop: true,
-        autoplay: true,
-        path: 'https://botfather.cloud/Assets/Sticker/love_duck.json'
-    });
-    for (let i = 11; i <= 19; i++) {
-        const elem = document.getElementById('Sowrov' + i);
-        if (elem) {
-            lottie.loadAnimation({
-                container: elem,
-                renderer: 'svg',
-                loop: true,
-                autoplay: true,
-                path: 'https://botfather.cloud/Assets/Sticker/happy_duck.json'
-            });
-        }
-    }
-    const elem25 = document.getElementById('Sowrov25');
-    if (elem25) {
-        lottie.loadAnimation({
-            container: elem25,
-            renderer: 'svg',
-            loop: true,
-            autoplay: true,
-            path: 'https://botfather.cloud/Assets/Sticker/happy_duck.json'
-        });
-    }
-}
-
 document.addEventListener('DOMContentLoaded', () => {
     document.querySelectorAll('.proposal-screen').forEach(el => el.style.display = 'none');
     document.getElementById('StartScreen').style.display = 'block';
-    loadLottieAnimations();
     showLoveTip();
 
 });
