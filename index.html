@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Hey Lara!</title>
+    <title>Presente para Sinara!</title>
     <link rel="stylesheet" href="style.css">
     <link href="https://fonts.googleapis.com/css2?family=Pacifico&family=Quicksand:wght@400;600&display=swap" rel="stylesheet">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/lottie-web/5.9.6/lottie.min.js"></script>
@@ -20,25 +20,25 @@
             <h1> Querida Sinara,</h1>
             <!-- <p>Clique no coração para começar essa história...</p> -->
             <div class="btn">
-                <a href="#" onclick="startJourney()">Clique aqui</a>
+                <a href="#" onclick="startJourney()">Clique aqui para ver seu presente</a>
             </div>
         </div>
 
         <!-- Telas automáticas (sem botão) -->
         <div id="Auto1" class="proposal-screen auto-step">
             <div class="sticker" id="Sowrov11"></div>
-            <h1>Você foi uma mãe incrivel esse ano...</h1>
-            <p> </p>
+            <h1>Que você é uma mãe incrível, todos já sabemos!</h1>
+            <p> Mas cuidar de 3, é algo bem punk...</p>
         </div>
         <div id="Auto2" class="proposal-screen auto-step">
             <div class="sticker" id="Sowrov12"></div>
-            <h1> Ter crianças com toda certeza não é facil...</h1>
-            <p> Ainda mais ter q cuidar de 3 de uma vez rsrs </p>
+            <h1> Por isso, Não foi facil pensar num presente bacana...</h1>
+            <p> Afinal, você merece muito mais do que qualquer coisa que poderiamos te dar...</p>
         </div>
         <div id="Auto3" class="proposal-screen auto-step">
             <div class="sticker" id="Sowrov13"></div>
             <h1> Julius e eu admiramos demais o seu esforço! </h1>
-            <p>Você é uma verdadeira guerreira.</p>
+            <p>Você é uma verdadeira guerreira!!!</p>
         </div>
         <div id="Auto4" class="proposal-screen auto-step">
             <div class="sticker" id="Sowrov14"></div>
@@ -47,104 +47,35 @@
         </div>
         <div id="Auto5" class="proposal-screen auto-step">
             <div class="sticker" id="Sowrov16"></div>
-            <h1>Por isso meu lindo e amoroso e perfeito e mais gato do mundo namorado resolvemos te dar um presente um pouco diferente. </h1>
-            <!-- <p>Com você, até os dias nublados têm cor.<br><br>Você é minha calmaria e minha aventura ao mesmo tempo.</p> -->
+            <h1>Por isso...  </h1>
+            <p>Meu lindo e amoroso e perfeito e mais gato do mundo namorado resolvemos te dar um presente um pouco diferente.</p>
         </div>
-
-        <!-- Interativas -->
-        <div id="Quiz1" class="proposal-screen">
-            <div class="sticker" id="Sowrov15"></div>
-            <h1>Bora ver se você lembra… 🧐</h1>
-            <p>Qual foi o nosso primeiro assunto?</p>
-            <div class="btn">
-                <a href="#" onclick="quizAnswer(false)">Igrejas na Alemanha</a>
-                <a href="#" onclick="quizAnswer(false)">Comida</a>
-                <a href="#" onclick="quizAnswer(true)">Memórias Afetivas/Neve</a>
-            </div>
-            <div id="quiz-feedback" style="margin-top:15px;"></div>
+        <div id="Auto6" class="proposal-screen auto-step">
+            <div class="sticker" id="Sowrov17"></div>
+            <h1>E esse presente é...</h1>
+            <p>Um dia sem crianças 🤗🥳</p>
         </div>
-
-        <div id="Choice1" class="proposal-screen">
+        <div id="Auto7" class="proposal-screen auto-step">
             <div class="sticker" id="Sowrov18"></div>
-            <h1>Pergunta difícil... 🤔</h1>
-            <p>Quem é mais fofo?</p>
-            <div class="btn">
-                <a href="#" onclick="choiceAnswer()">Eu 😏</a>
-                <a href="#" onclick="choiceAnswer()">Você 🥰</a>
-            </div>
-            <div id="choice-feedback" style="margin-top:15px;"></div>
+            <h1>Mas não é apenas isso... </h1>
+            <p>Tem um plus nisso...</p>
         </div>
-
-        <div id="Input1" class="proposal-screen">
-            <div class="sticker" id="Sowrov20"></div>
-            <h1>Deixa um recadinho pra mim? 💌</h1>
-            <p>O que você mais gosta em nós dois juntos?</p>
-            <input type="text" id="love-note" class="input-box" maxlength="120" placeholder="Escreve aqui..." />
-            <div class="btn" style="margin-top: 15px;">
-                <a href="#" onclick="saveNote()">Enviar recado</a>
-            </div>
-            <div id="note-feedback" style="margin-top:15px;"></div>
-        </div>
-
-        <div id="Trip1" class="proposal-screen">
-            <div class="sticker" id="Sowrov21"></div>
-            <h1>Viagem dos sonhos…</h1>
-            <p>Se tivesse que escolher uma viagem comigo, pra onde seria?</p>
-            <div class="btn">
-                <a href="#" onclick="tripReact()">Praia 🏖️</a>
-                <a href="#" onclick="tripReact()">Montanha 🏔️</a>
-                <a href="#" onclick="tripReact()">Netflix em casa 🍿</a>
-            </div>
-            <div id="trip-feedback" style="margin-top:15px;"></div>
-        </div>
-
-        <div id="Truth1" class="proposal-screen">
-            <div class="sticker" id="Sowrov22"></div>
-            <h1>Verdade ou mentira?</h1>
-            <p>Você está sempre em todas minhas orações, por mais que sejam em momentos estranhos como antes de fazer alguma refeição rsrs.</p>
-            <div class="btn">
-                <a href="#" onclick="truthReact('verdade')">Verdade!</a>
-                <a href="#" onclick="truthReact('mentira')">Mentira!</a>
-            </div>
-            <div id="truth-feedback" style="margin-top:15px;"></div>
-        </div>
-
-        <div id="Msg3" class="proposal-screen">
+        <div id="Auto8" class="proposal-screen auto-step">
             <div class="sticker" id="Sowrov19"></div>
-            <h1>Lara! 💖</h1>
-            <p>Quero construir novas memórias com você, colecionar histórias, sorrisos, viagens e domingos preguiçosos.<br><br>Apenas continue se você quiser o mesmo comigo</p>
-            <div class="btn">
-                <a href="#" id="continue-together-btn" onclick="continueTogether()">Continuar</a>
-            </div>
-            <div id="together-feedback" style="margin-top:15px;"></div>
+            <h1>Você tbm vai ganhar um dia relaxante nas Thermas 👯‍♀️</h1>
+            <p>E você poderá escolher qual mais te agrada!!!</p>
         </div>
+        
 
-        <div id="Msg4" class="proposal-screen">
-            <div class="sticker" id="Sowrov23"></div>
-            <h1>Lara! 💖</h1>
-            <p>Agora que já viajei no romantismo e também na mais pura breguice... <br><br> Queria te fazer uma pergunta MUITO importante… <br><br> Mas agora de forma oficial</p>
+        <!-- Escolha do spa -->
+        <div id="SpaChoice" class="proposal-screen">
+            <div class="sticker" id="Sowrov15"></div>
+            <h1>Confira esses spas incríveis! 🧖‍♀️</h1>
+            <p>Clique nos links para avaliar e escolher o que mais te agrada na região de Munique.</p>
             <div class="btn">
-                <a href="#" onclick="nextProposal()">Pode perguntar!</a>
-                <a href="#" onclick="nextProposal()">Vish, medo! 😬</a>
-            </div>
-        </div>
-
-        <div id="proposal-1" class="proposal-screen">
-            <div class="sticker" id="Sowrov24"></div>
-            <h1>Lara! 💖</h1>
-            <p>Quer ser meu par pra todas as aventuras, risadas e preguiças? <br><br> Ou, resumindo: quer namorar comigo?</p>
-            <div class="btn">
-                <a href="#" onclick="showProposal('proposal-yes')">❤️ Sim</a>
-                <a href="#" id="move-random">💔 Não</a>
-            </div>
-        </div>
-
-        <div id="proposal-yes" class="proposal-screen">
-            <div class="sticker" id="Sowrov25"></div>
-            <h1>SIM! 🥰</h1>
-            <p>20/06/2025... <br><br> Agora somos oficialmente um casal.<br>Prepare-se para viver muitas aventuras ao meu lado. Eu te amo!</p>
-            <div style="margin-top:30px;">
-                <small>Este site ficará guardado pra sempre nesse link. Volte sempre que quiser reassistir.</small>
+                <a href="https://shop.therme-erding.de/" target="_blank">Therme Erding</a>
+                <a href="https://www.rupertustherme.de/therme" target="_blank">Rupertustherme</a>
+                <a href="https://www.chiemgau-thermen.de/" target="_blank">Chiemgau Thermen</a>
             </div>
         </div>
     </div>

@@ -1,11 +1,10 @@
 // Telas automáticas (sem botão)
-const autoScreens = ["Auto1", "Auto2", "Auto3", "Auto4", "Auto5"];
+const autoScreens = ["Auto1", "Auto2", "Auto3", "Auto4", "Auto5", "Auto6", "Auto7", "Auto8"];
 
 // Ordem completa das telas
 const proposalOrder = [
   ...autoScreens,
-  "Quiz1", "Choice1", "Input1", "Trip1",
-  "Truth1", "Msg3", "Msg4", "proposal-1", "proposal-yes"
+  "SpaChoice"
 ];
 
 let currentProposalIndex = 0;
@@ -28,15 +27,6 @@ function showScreen(index) {
         screen.classList.add('fadeInCustom');
         animateSticker(currId);
 
-        // Adiciona o evento do botão "não"
-        if (currId === "proposal-1") {
-            const moveRandomBtn = document.getElementById('move-random');
-            if (moveRandomBtn && !moveRandomBtn._hasMoveEvent) {
-                moveRandomBtn.addEventListener('mouseenter', (e) => moveRandomEl(e.target));
-                moveRandomBtn._hasMoveEvent = true;
-            }
-        }
-
         // Avança sozinho após 5 segundos se for auto-step
         if (autoScreens.includes(currId)) {
             autoTimeout = setTimeout(() => {
@@ -55,50 +45,7 @@ function nextProposal() {
     currentProposalIndex++;
     if (currentProposalIndex < proposalOrder.length) {
         showScreen(currentProposalIndex);
-    } else {
-        showProposal('proposal-yes');
     }
-}
-
-// Interações das telas
-function quizAnswer(isCorrect) {
-    const feedback = document.getElementById('quiz-feedback');
-    feedback.textContent = isCorrect ? "Aee, você lembra! 😍" : "Quase… mas aposto que nunca vai esquecer agora! 😂";
-    setTimeout(nextProposal, 1800);
-}
-function choiceAnswer() {
-    document.getElementById('choice-feedback').textContent = "Errado! Os dois são! 😝";
-    setTimeout(nextProposal, 1800);
-}
-function tripReact() {
-    document.getElementById('trip-feedback').innerHTML = `Amaria qualquer um, desde que seja com você 💖`;
-    setTimeout(nextProposal, 1700);
-}
-function truthReact(escolha) {
-    document.getElementById('truth-feedback').innerHTML =
-      (escolha === 'verdade') ? 'Acertoouu! ' : 'Mentira? Olha… acho que não! 🙈';
-    setTimeout(nextProposal, 1600);
-}
-function saveNote() {
-    const note = document.getElementById('love-note').value;
-    const feedback = document.getElementById('note-feedback');
-    if (!note.trim()) {
-        feedback.textContent = "Não vale pular! Escreve alguma coisinha 🥺";
-        return;
-    }
-    feedback.textContent = "Agora ficou registrado no meu coração! 💌";
-    setTimeout(nextProposal, 1800);
-}
-function continueTogether() {
-    document.getElementById('together-feedback').innerHTML = "Awn, então vamos juntos! 💕";
-    setTimeout(nextProposal, 1600);
-}
-
-// Botão "não" fujão
-function moveRandomEl(element) {
-    element.style.position = "absolute";
-    element.style.top = Math.floor(Math.random() * 70 + 5) + "%";
-    element.style.left = Math.floor(Math.random() * 70 + 5) + "%";
 }
 
 // Animação sticker
@@ -111,26 +58,16 @@ function animateSticker(screenId) {
     }
 }
 
-// Dicas do topo
-    const idx = Math.floor(Math.random() * tips.length);
-    document.getElementById('love-tip').textContent = tips[idx];
+// Dicas do topo (removidas, mas mantendo função vazia)
+function showLoveTip() {
+    // Removido
+}
 
-
-// Proposta final
-function showProposal(idToShow) {
+// Confirmação final
+function showConfirmation() {
     document.querySelectorAll('.proposal-screen').forEach(el => el.style.display = 'none');
-    document.getElementById(idToShow).style.display = 'block';
-    if (idToShow === 'proposal-1') {
-        const moveRandomBtn = document.getElementById('move-random');
-        if (moveRandomBtn && !moveRandomBtn._hasMoveEvent) {
-            moveRandomBtn.addEventListener('mouseenter', (e) => moveRandomEl(e.target));
-            moveRandomBtn._hasMoveEvent = true;
-        }
-    }
-    if (idToShow === 'proposal-yes') {
-        document.body.style.backgroundColor = '#ffecf0';
-        confetti({ particleCount: 120, spread: 80, origin: { y: 0.7 } });
-    }
+    document.getElementById('Confirmation').style.display = 'block';
+    confetti({ particleCount: 120, spread: 80, origin: { y: 0.7 } });
 }
 
 // Lottie
@@ -142,7 +79,7 @@ function loadLottieAnimations() {
         autoplay: true,
         path: 'https://botfather.cloud/Assets/Sticker/love_duck.json'
     });
-    for (let i = 11; i <= 25; i++) {
+    for (let i = 11; i <= 19; i++) {
         const elem = document.getElementById('Sowrov' + i);
         if (elem) {
             lottie.loadAnimation({
@@ -153,6 +90,16 @@ function loadLottieAnimations() {
                 path: 'https://botfather.cloud/Assets/Sticker/happy_duck.json'
             });
         }
+    }
+    const elem25 = document.getElementById('Sowrov25');
+    if (elem25) {
+        lottie.loadAnimation({
+            container: elem25,
+            renderer: 'svg',
+            loop: true,
+            autoplay: true,
+            path: 'https://botfather.cloud/Assets/Sticker/happy_duck.json'
+        });
     }
 }
 
@@ -166,10 +113,3 @@ document.addEventListener('DOMContentLoaded', () => {
 
 window.startJourney = startJourney;
 window.nextProposal = nextProposal;
-window.quizAnswer = quizAnswer;
-window.choiceAnswer = choiceAnswer;
-window.tripReact = tripReact;
-window.truthReact = truthReact;
-window.saveNote = saveNote;
-window.continueTogether = continueTogether;
-window.showProposal = showProposal;
